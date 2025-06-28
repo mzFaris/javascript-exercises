@@ -7,16 +7,14 @@
  * 
  */
 
-const removeFromArray = function(arr) {
-    for (let i = 1; i < arguments.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arguments[i] === arr[j]) {
-                arr.splice(j, 1);
-                j--;
-            }
+const removeFromArray = function(arr, ...args) {
+    const newArray = [];
+    arr.forEach((element) => {
+        if (!(args.includes(element))) {
+            newArray.push(element);
         }
-    }
-    return arr;
+    }); 
+    return newArray;
 };
 
 console.log(removeFromArray(["a", "b", "c", "d", "e", "b"], "b", "c"));
